@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Jewellery Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+
+        body {
+            background-color: #f8f5ef;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ================= IMAGE CONTAINER ================= */
+
+        .image-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 20px;
+            scrollbar-width: none;
+        }
+
+        .image-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .image-container img {
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border-radius: 15px;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .custom-navbar {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-radius: 40px;
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 8px 15px;
+        }
+
+        .navbar-brand {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            color: #111;
+            letter-spacing: 1px;
+        }
+
+        .navbar-brand:hover {
+            color: #BC9958;
+        }
+
+        .navbar-nav {
+            gap: 10px;
+        }
+
+        .nav-link {
+            font-size: 13px;
+            font-weight: 500;
+            color: #222;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: #BC9958;
+        }
+
+        .sale-link {
+            color: #BC9958 !important;
+        }
+
+        @media (max-width: 991px) {
+
+            .custom-navbar {
+                width: 95%;
+            }
+
+            .navbar-nav {
+                gap: 0;
+                padding: 10px 0;
+            }
+
+            .nav-link {
+                padding: 10px 15px;
+            }
+
+        }
+
+        /* ================= CATEGORY CARDS ================= */
+
+        .category-card {
+            background-color: transparent;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            height: 60vh;
+        }
+
+        .category-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            background: #ffffff;
+            color: #111;
+            border-top: 1px solid #ddd;
+            margin-top: 50px;
+        }
+
+        .footer h6 {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        .footer-link {
+            display: block;
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 12px;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #BC9958;
+            transform: translateX(4px);
+        }
+
+        /* Newsletter */
+
+        .footer-connect {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 35px 0;
+        }
+
+        .footer-connect h5 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .footer-connect p {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .email-box {
+            display: flex;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .email-box input {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #ccc;
+            border-right: none;
+            padding: 0 16px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .email-box input:focus {
+            border-color: #BC9958;
+        }
+
+        .email-box button {
+            height: 48px;
+            background: #111;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .5px;
+        }
+
+        .email-box button:hover {
+            background: #BC9958;
+        }
+
+        /* Social */
+
+        .social-box {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .social-box span {
+            font-size: 12px;
+            font-weight: 700;
+            margin-right: 5px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #111;
+            font-size: 17px;
+            text-decoration: none;
+
+            transition: .3s;
+        }
+
+        .social-icon:hover {
+            background: #111;
+            color: white;
+            border-color: #111;
+            transform: translateY(-3px);
+        }
+
+        /* Footer bottom */
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 22px 0;
+
+            color: #777;
+            font-size: 12px;
+        }
+
+        @media (max-width: 767px) {
+
+            .footer-connect {
+                text-align: center;
+            }
+
+            .email-box {
+                margin: auto;
+            }
+
+            .social-box {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg custom-navbar">
+
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#">
+            GLOW & CO.
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+
+
+                  <li class="nav-item">
+                    <a class="nav-link  active" href="index.html">
+                    HOME
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="jewellery.html">
+                        JEWELRY
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="N.HTML">
+                        NECKLACES
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="ringsearring.html">
+                        EARRINGS
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="ringsearring.html">
+                        RINGS
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="BRACLETS.HTML">
+                        BRACELETS
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="newarravial.html">
+                        NEW ARRIVALS
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link sale-link" href="SALE.HTML">
+                        SALE
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<div class="card text-bg-dark border-0">
+
+    <img
+        src="card2.jpg"
+        class="card-img img-fluid w-100"
+        alt="Jewelry Banner"
+        style="height: 97vh; object-fit: cover;">
+
+    <div class="card-img-overlay d-flex flex-column justify-content-center align-items-start p-3 p-sm-4 p-md-5">
+
+        <h5 class="card-title display-4 fw-bold" style="font-size: 50px;">
+            ELEVATE EVERY MOMENT.
+        </h5>
+
+        <p class="card-text fs-6 fs-md-5">
+            Timeless jewelry designed to shine with you.
+        </p>
+
+        <button
+            type="button"
+            class="btn mt-2"
+            style="background-color: #BC9958; color: white;">
+            EXPLORE ALL JEWELRY
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CATEGORY CARDS ================= -->
+
+<div class="container">
+
+    <div class="row g-4" style="margin-top: 50px;">
+
+        <!-- RINGS -->
+        <div class="col-md-4">
+
+            <div class="card border-0 category-card">
+
+                <img
+                    src="rings.png"
+                    class="card-img-top"
+                    alt="Rings">
+
+                <div class="card-body text-center">
+
+                    <h3 class="card-title">
+                        RINGS
+                    </h3>
+
+                    <a
+                        href="#"
+                        class="fw-bold text-decoration-none"
+                        style="color: #BC9958;">
+
+                        <h6>EXPLORE MORE</h6>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BRACELETS -->
+        <div class="col-md-4">
+
+            <div class="card border-0 category-card">
+
+                <img
+                    src="pic1 (2).jpg"
+                    class="card-img-top"
+                    alt="Bracelets">
+
+                <div class="card-body text-center">
+
+                    <h3 class="card-title">
+                        BRACELETS
+                    </h3>
+
+                    <a
+                        href="#"
+                        class="fw-bold text-decoration-none"
+                        style="color: #BC9958;">
+
+                        <h6>EXPLORE MORE</h6>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NECKLACES -->
+        <div class="col-md-4">
+
+            <div class="card border-0 category-card">
+
+                <img
+                    src="NACKLR=ES.png"
+                    class="card-img-top"
+                    alt="Necklaces">
+
+                <div class="card-body text-center">
+
+                    <h3 class="card-title">
+                        NECKLACES
+                    </h3>
+
+                    <a
+                        href="#"
+                        class="fw-bold text-decoration-none"
+                        style="color: #BC9958;">
+
+                        <h6>EXPLORE MORE</h6>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= BEST SELLERS ================= -->
+
+<div
+    class="container text-center"
+    style="margin-top: 50px; color: #BC9958;">
+
+    <h1>
+        OUR BEST SELLERS
+    </h1>
+
+</div>
+
+
+<div class="container">
+
+    <div class="image-container">
+
+        <img src="IMG1 (1).jpg" alt="Image 1">
+
+        <img src="IMG1 (2).jpg" alt="Image 2">
+
+        <img src="download (8).jpg" alt="Image 3">
+
+        <img src="download (7).jpg" alt="Image 4">
+
+        <img
+            src="925 Sterling Silver Heart Jewelry Set- Necklace, Ring, Earrings- Dainty Gift for Her - Etsy.jpg"
+            alt="Image 5">
+
+        <img src="IMG1 (4).png" alt="Image 6">
+
+    </div>
+
+</div>
+
+
+<!-- ================= SUMMER SECTION ================= -->
+
+<div class="container my-5">
+
+    <div class="card mb-3 border-0 shadow-sm">
+
+        <div class="row g-0">
+
+            <div class="col-md-4">
+
+                <img
+                    src="model.jpg"
+                    class="img-fluid rounded-start w-100"
+                    alt="Jewelry Model"
+                    style="height: 50vh; object-fit: cover;">
+
+            </div>
+
+            <div class="col-md-8">
+
+                <div
+                    class="card-body"
+                    style="margin-top: 40px;">
+
+                    <h5 class="card-title">
+                        SHINE IN SUMMER
+                    </h5>
+
+                    <p class="card-text">
+                        Discover radiant pieces made for sunny days
+                        and golden nights.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="btn"
+                        style="background-color: #BC9958; color: white;">
+
+                        EXPLORE
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= BLOG TITLE ================= -->
+
+<div
+    class="container text-center"
+    style="margin-top: 100px;">
+
+    <h1 style="color: #BC9958;">
+        THE GLOW BLOG
+    </h1>
+
+</div>
+
+
+<!-- ================= BLOG CARDS ================= -->
+
+<div class="container my-4">
+
+    <div class="row g-4">
+
+        <!-- CARD 1 -->
+        <div class="col-12 col-md-6">
+
+            <div class="card h-100 shadow-sm border-0 bg-transparent">
+
+                <div class="row g-0 h-100">
+
+                    <div class="col-4">
+
+                        <img
+                            src="card2.jpg"
+                            class="img-fluid rounded-start w-100 h-100"
+                            style="object-fit: cover;"
+                            alt="Luxury Jewelry">
+
+                    </div>
+
+                    <div class="col-8">
+
+                        <div class="card-body bg-transparent">
+
+                            <h5 class="card-title fw-bold">
+                                Luxury Jewelry
+                            </h5>
+
+                            <p class="card-text">
+
+                                <strong>
+                                    How to style gold jewelry everyday
+                                </strong>
+
+                                — simple tips to elevate your look.
+
+                            </p>
+
+                            <a
+                                href="#"
+                                class="text-dark">
+
+                                Read more
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+        <div class="col-12 col-md-6">
+
+            <div class="card h-100 shadow-sm border-0 bg-transparent">
+
+                <div class="row g-0 h-100">
+
+                    <div class="col-4">
+
+                        <img
+                            src="card2.png"
+                            class="img-fluid rounded-start w-100 h-100"
+                            style="object-fit: cover;"
+                            alt="Gold Jewelry">
+
+                    </div>
+
+                    <div class="col-8">
+
+                        <div class="card-body bg-transparent">
+
+                            <h5 class="card-title fw-bold">
+                                Gold Jewelry
+                            </h5>
+
+                            <p class="card-text">
+
+                                <strong>
+                                    Elegant jewelry for every occasion
+                                </strong>
+
+                                — timeless pieces to complete your look.
+
+                            </p>
+
+                            <a
+                                href="#"
+                                style="color: #BC9958;">
+
+                                Read more
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOLLOW US ================= -->
+
+<hr>
+
+<div class="container my-5">
+
+    <h5 class="text-center mb-4 fw-bold">
+        FOLLOW US @GLOWANDOCO
+    </h5>
+
+    <div class="row row-cols-2 row-cols-lg-4 g-3 justify-content-center">
+
+        <div class="col text-center">
+
+            <img
+                src="card2.jpg"
+                class="img-fluid rounded"
+                style="width: 150px; height: 150px; object-fit: cover;"
+                alt="Glow & Co">
+
+        </div>
+
+        <div class="col text-center">
+
+            <img
+                src="card2.png"
+                class="img-fluid rounded"
+                style="width: 150px; height: 150px; object-fit: cover;"
+                alt="Glow & Co">
+
+        </div>
+
+        <div class="col text-center">
+
+            <img
+                src="model.jpg"
+                class="img-fluid rounded"
+                style="width: 150px; height: 150px; object-fit: cover;"
+                alt="Glow & Co">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- ===================== FOOTER ======================== -->
+<!-- ===================================================== -->
+
+<footer class="footer">
+
+    <div class="container-fluid px-4 px-md-5">
+
+        <!-- FOOTER LINKS -->
+        <div class="row py-5">
+
+            <!-- SHOP -->
+            <div class="col-6 col-md-3">
+
+                <h6>SHOP</h6>
+
+                <a href="#" class="footer-link">
+                    Women
+                </a>
+
+                <a href="#" class="footer-link">
+                    Men
+                </a>
+
+                <a href="#" class="footer-link">
+                    Bags
+                </a>
+
+                <a href="#" class="footer-link">
+                    Accessories
+                </a>
+
+            </div>
+
+
+            <!-- ABOUT US -->
+            <div class="col-6 col-md-3">
+
+                <h6>ABOUT US</h6>
+
+                <a href="#" class="footer-link">
+                    Our Story
+                </a>
+
+                <a href="#" class="footer-link">
+                    Contact
+                </a>
+
+                <a href="#" class="footer-link">
+                    Careers
+                </a>
+
+                <a href="#" class="footer-link">
+                    Our Stores
+                </a>
+
+            </div>
+
+
+            <!-- SUPPORT -->
+            <div class="col-6 col-md-3">
+
+                <h6>SUPPORT</h6>
+
+                <a href="#" class="footer-link">
+                    FAQ
+                </a>
+
+                <a href="#" class="footer-link">
+                    Shipping
+                </a>
+
+                <a href="#" class="footer-link">
+                    Returns
+                </a>
+
+                <a href="#" class="footer-link">
+                    Track Order
+                </a>
+
+            </div>
+
+
+            <!-- LEGAL -->
+            <div class="col-6 col-md-3">
+
+                <h6>LEGAL</h6>
+
+                <a href="#" class="footer-link">
+                    Privacy Policy
+                </a>
+
+                <a href="#" class="footer-link">
+                    Terms & Conditions
+                </a>
+
+                <a href="#" class="footer-link">
+                    Refund Policy
+                </a>
+
+                <a href="#" class="footer-link">
+                    Cookies
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- EMAIL + SOCIAL -->
+        <div class="footer-connect">
+
+            <div class="row align-items-center g-4">
+
+                <!-- EMAIL -->
+                <div class="col-12 col-lg-7">
+
+                    <h5>
+                        JOIN OUR NEWSLETTER
+                    </h5>
+
+                    <p>
+                        Subscribe for new arrivals, exclusive offers & updates.
+                    </p>
+
+                    <div class="email-box">
+
+                        <input
+                            type="email"
+                            placeholder="Enter your email address">
+
+                        <button type="button">
+                            SUBSCRIBE
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SOCIAL -->
+                <div class="col-12 col-lg-5">
+
+                    <div class="social-box">
+
+                        <span>
+                            FOLLOW US
+                        </span>
+
+                        <a href="#" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+
+                        <a href="#" aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+
+                        <a href="#" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a href="#" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 GLOW & CO. All Rights Reserved.
+            </span>
+
+            <span>
+                Made with ♥ for Fashion
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= BOOTSTRAP JS ================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous">
+</script>
+
+
+</body>
+
+</html>

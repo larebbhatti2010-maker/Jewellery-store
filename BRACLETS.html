@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glow & Co. | Bracelets</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f5ef;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #1f1f1f;
+            color: #ffffff;
+            text-align: center;
+            padding: 55px 20px 30px;
+            margin-top: 70px;
+            border-top: 3px solid #b08d57;
+        }
+
+        footer h3 {
+            color: #b08d57;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            transition: 0.3s ease;
+        }
+
+        footer h3:hover {
+            letter-spacing: 5px;
+        }
+
+        footer p {
+            color: #d6d6d6;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        footer p:last-child {
+            color: #999999;
+            font-size: 13px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #444444;
+        }
+
+        /* BRACELETS COLLECTION */
+
+        #bracelets {
+            padding: 70px 15px 40px;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            color: #2b2b2b;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #777;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        /* IMAGE CONTAINER */
+
+        .image-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 20px;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+
+        .image-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .image-container img {
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transition: 0.4s;
+        }
+
+        .image-container img:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        /* NAVBAR */
+
+        .custom-navbar {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-radius: 40px;
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 8px 15px;
+        }
+
+        .navbar-brand {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            color: #111;
+            letter-spacing: 1px;
+        }
+
+        .navbar-brand:hover {
+            color: #BC9958;
+        }
+
+        .navbar-nav {
+            gap: 10px;
+        }
+
+        .nav-link {
+            font-size: 13px;
+            font-weight: 500;
+            color: #222;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: #BC9958;
+        }
+
+        .sale-link {
+            color: #BC9958 !important;
+        }
+
+        /* PRODUCT TITLE */
+
+        .explore-title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 55px 0 35px;
+            color: #2b2b2b;
+            position: relative;
+        }
+
+        .explore-title::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: #b08d57;
+            margin: 14px auto 0;
+            border-radius: 10px;
+        }
+
+        /* PRODUCT CARD */
+
+        .product-card {
+            height: 100%;
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #eeeeee;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* PRODUCT IMAGE */
+
+        .product-card .image-box {
+            width: 100%;
+            height: 320px;
+            position: relative;
+            overflow: hidden;
+            background: #f8f8f8;
+        }
+
+        .product-card .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .image-box img {
+            transform: scale(1.08);
+        }
+
+        /* PRODUCT BADGE */
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #b08d57;
+            color: #ffffff;
+            padding: 7px 13px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* PRODUCT BODY */
+
+        .product-body {
+            padding: 25px 20px 28px;
+        }
+
+        .product-category {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #b08d57;
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #292929;
+            margin-bottom: 12px;
+        }
+
+        .product-description {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.7;
+            min-height: 48px;
+            margin-bottom: 18px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 20px;
+        }
+
+        /* SHOP NOW BUTTON */
+
+        .shop-btn {
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            background: #b08d57;
+            color: #ffffff;
+            padding: 11px 28px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .shop-btn:hover {
+            background: #222222;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 991px) {
+
+            .custom-navbar {
+                width: 95%;
+            }
+
+            .navbar-nav {
+                gap: 0;
+                padding: 10px 0;
+            }
+
+            .nav-link {
+                padding: 10px 15px;
+            }
+
+            #bracelets {
+                padding-top: 55px;
+            }
+
+            .section-heading {
+                font-size: 30px;
+            }
+
+            .explore-title {
+                font-size: 27px;
+            }
+
+            .product-card .image-box {
+                height: 300px;
+            }
+
+            .image-container img {
+                width: 230px;
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 575px) {
+
+            #bracelets {
+                padding: 45px 10px 30px;
+            }
+
+            .section-heading {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
+            .section-description {
+                font-size: 14px;
+                line-height: 1.6;
+                padding: 0 10px;
+            }
+
+            .image-container {
+                gap: 14px;
+            }
+
+            .image-container img {
+                width: 210px;
+                height: 250px;
+                border-radius: 12px;
+            }
+
+            .explore-title {
+                font-size: 23px;
+                margin-top: 40px;
+            }
+
+            .product-card .image-box {
+                height: 300px;
+            }
+
+            .product-name {
+                font-size: 18px;
+            }
+
+            .product-description {
+                font-size: 13px;
+            }
+
+            .product-price {
+                font-size: 18px;
+            }
+
+            .shop-btn {
+                padding: 10px 24px;
+                font-size: 12px;
+            }
+
+            footer {
+                padding: 40px 15px 25px;
+                margin-top: 50px;
+            }
+
+            footer h3 {
+                font-size: 23px;
+                letter-spacing: 2px;
+            }
+
+            footer p {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            .section-heading {
+                font-size: 21px;
+            }
+
+            .image-container img {
+                width: 185px;
+                height: 225px;
+            }
+
+            .product-card .image-box {
+                height: 270px;
+            }
+
+            .product-body {
+                padding: 20px 15px 25px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg custom-navbar">
+
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#">
+            GLOW & CO.
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="jewellery.html">
+                        JEWELRY
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="N.HTML">
+                        NECKLACES
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="ringsearring.html">
+                        EARRINGS
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="ringsearring.html">
+                        RINGS
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="BRACLETS.html">
+                        BRACELETS
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="newarravial.html">
+                        NEW ARRIVALS
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link sale-link" href="SALE.HTML">
+                        SALE
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- BANNER -->
+
+<div class="card text-bg-dark" style="border: none;">
+
+    <img src="BBANNAR1 (1).jpg"
+         class="card-img"
+         alt="Bracelets Banner"
+         style="height: 80vh; object-fit: cover;">
+
+    <div class="card-img-overlay"
+         style="margin-left: 80px; margin-top: 70px;">
+
+        <h5 class="card-title" style="font-size: 50px;">
+            SHINE WITH ELEGANCE
+            <br>
+            EXPLORE COLLECTION
+        </h5>
+
+        <p class="card-text" style="font-size: 20px;">
+            Beautiful bracelets for every occasion..
+        </p>
+
+        <button type="button" class="btn"
+                style="background-color: #BC9958;color: white;">
+            SHOP NOW
+        </button>
+
+    </div>
+</div>
+
+<!-- BRACELETS COLLECTION -->
+
+<section class="container" id="bracelets">
+
+    <h2 class="section-heading">
+        BRACELETS COLLECTION
+    </h2>
+
+    <p class="section-description">
+        Elegant bracelets designed to add a touch of luxury to every look.
+    </p>
+
+    <div class="image-container">
+
+        <img src="BRA1 (1).jpg" alt="Gold Chain Bracelet">
+
+        <img src="BRA1 (10).jpg" alt="Pearl Charm Bracelet">
+
+        <img src="BRA1 (11).jpg" alt="Diamond Style Bracelet">
+
+        <img src="BRA1 (2).jpg" alt="Rose Gold Bracelet">
+
+        <img src="BRA1 (9).jpg" alt="Silver Classic Bracelet">
+
+        <img src="BRA1 (7).jpg" alt="Luxury Crystal Bracelet">
+
+    </div>
+
+</section>
+
+<!-- BRACELETS PRODUCTS -->
+
+<div class="container">
+
+    <h2 class="explore-title">
+        EXPLORE BRACELETS
+    </h2>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+
+        <!-- BRACELET 1 -->
+
+        <div class="col">
+
+            <div class="product-card">
+
+                <div class="image-box">
+
+                    <img src="BRA1 (2).jpg"
+                         alt="Gold Chain Bracelet">
+
+                    <span class="product-badge">
+                        NEW
+                    </span>
+
+                </div>
+
+                <div class="product-body text-center">
+
+                    <p class="product-category">
+                        BRACELETS
+                    </p>
+
+                    <h5 class="product-name">
+                        Gold Chain Bracelet
+                    </h5>
+
+                    <p class="product-description">
+                        A delicate gold chain bracelet for an elegant everyday look.
+                    </p>
+
+                    <h6 class="product-price">
+                        Rs. 4,500
+                    </h6>
+
+                    <a href="BRACLETS.php?product=Gold%20Chain%20Bracelet"
+                       class="shop-btn">
+                        SHOP NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BRACELET 2 -->
+
+        <div class="col">
+
+            <div class="product-card">
+
+                <div class="image-box">
+
+                    <img src="BRA1 (12).jpg"
+                         alt="Pearl Charm Bracelet">
+
+                    <span class="product-badge">
+                        BESTSELLER
+                    </span>
+
+                </div>
+
+                <div class="product-body text-center">
+
+                    <p class="product-category">
+                        BRACELETS
+                    </p>
+
+                    <h5 class="product-name">
+                        Pearl Charm Bracelet
+                    </h5>
+
+                    <p class="product-description">
+                        Beautiful pearl details combined with a sophisticated charm design.
+                    </p>
+
+                    <h6 class="product-price">
+                        Rs. 3,800
+                    </h6>
+
+                    <a href="BRACLETS.php?product=Pearl%20Charm%20Bracelet"
+                       class="shop-btn">
+                        SHOP NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BRACELET 3 -->
+
+        <div class="col">
+
+            <div class="product-card">
+
+                <div class="image-box">
+
+                    <img src="BRA1 (8).jpg"
+                         alt="Diamond Style Bracelet">
+
+                    <span class="product-badge">
+                        NEW
+                    </span>
+
+                </div>
+
+                <div class="product-body text-center">
+
+                    <p class="product-category">
+                        BRACELETS
+                    </p>
+
+                    <h5 class="product-name">
+                        Diamond Style Bracelet
+                    </h5>
+
+                    <p class="product-description">
+                        Sparkling stone details designed to make every occasion special.
+                    </p>
+
+                    <h6 class="product-price">
+                        Rs. 6,500
+                    </h6>
+
+                    <a href="BRACLETS.php?product=Diamond%20Style%20Bracelet"
+                       class="shop-btn">
+                        SHOP NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BRACELET 4 -->
+
+        <div class="col">
+
+            <div class="product-card">
+
+                <div class="image-box">
+
+                    <img src="BRA1 (12).jpg"
+                         alt="Rose Gold Bracelet">
+
+                    <span class="product-badge">
+                        TRENDING
+                    </span>
+
+                </div>
+
+                <div class="product-body text-center">
+
+                    <p class="product-category">
+                        BRACELETS
+                    </p>
+
+                    <h5 class="product-name">
+                        Rose Gold Bracelet
+                    </h5>
+
+                    <p class="product-description">
+                        A feminine rose gold bracelet with a stylish polished finish.
+                    </p>
+
+                    <h6 class="product-price">
+                        Rs. 5,200
+                    </h6>
+
+                    <a href="BRACLETS.php?product=Rose%20Gold%20Bracelet"
+                       class="shop-btn">
+                        SHOP NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BRACELET 5 -->
+
+        <div class="col">
+
+            <div class="product-card">
+
+                <div class="image-box">
+
+                    <img src="BRA1 (6).jpg"
+                         alt="Silver Classic Bracelet">
+
+                    <span class="product-badge">
+                        NEW
+                    </span>
+
+                </div>
+
+                <div class="product-body text-center">
+
+                    <p class="product-category">
+                        BRACELETS
+                    </p>
+
+                    <h5 class="product-name">
+                        Silver Classic Bracelet
+                    </h5>
+
+                    <p class="product-description">
+                        A minimal silver bracelet perfect for everyday elegance.
+                    </p>
+
+                    <h6 class="product-price">
+                        Rs. 3,200
+                    </h6>
+
+                    <a href="BRACLETS.php?product=Silver%20Classic%20Bracelet"
+                       class="shop-btn">
+                        SHOP NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BRACELET 6 -->
+
+        <div class="col">
+
+            <div class="product-card">
+
+                <div class="image-box">
+
+                    <img src="BRA1 (5).jpg"
+                         alt="Luxury Crystal Bracelet">
+
+                    <span class="product-badge">
+                        POPULAR
+                    </span>
+
+                </div>
+
+                <div class="product-body text-center">
+
+                    <p class="product-category">
+                        BRACELETS
+                    </p>
+
+                    <h5 class="product-name">
+                        Luxury Crystal Bracelet
+                    </h5>
+
+                    <p class="product-description">
+                        Brilliant crystal details that add glamour to your style.
+                    </p>
+
+                    <h6 class="product-price">
+                        Rs. 5,800
+                    </h6>
+
+                    <a href="BRACLETS.php?product=Luxury%20Crystal%20Bracelet"
+                       class="shop-btn">
+                        SHOP NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>
+        GLOW & CO.
+    </h3>
+
+    <p>
+        Timeless jewelry for every beautiful moment.
+    </p>
+
+    <p>
+        © 2026 Glow & Co. All Rights Reserved.
+    </p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

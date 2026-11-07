@@ -1,0 +1,1656 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Glow & Co. | Jewelry</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+
+    <style>
+
+        /* ==============================
+           GLOBAL
+        ============================== */
+
+        * {
+            box-sizing: border-box;
+        }
+        
+        /* ================= FOOTER ================= */
+
+        .footer {
+            background: #ffffff;
+            color: #111;
+            border-top: 1px solid #ddd;
+            margin-top: 50px;
+        }
+
+        .footer h6 {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        .footer-link {
+            display: block;
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 12px;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #BC9958;
+            transform: translateX(4px);
+        }
+
+        /* Newsletter */
+
+        .footer-connect {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 35px 0;
+        }
+
+        .footer-connect h5 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .footer-connect p {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .email-box {
+            display: flex;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .email-box input {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #ccc;
+            border-right: none;
+            padding: 0 16px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .email-box input:focus {
+            border-color: #BC9958;
+        }
+
+        .email-box button {
+            height: 48px;
+            background: #111;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .5px;
+        }
+
+        .email-box button:hover {
+            background: #BC9958;
+        }
+
+        /* Social */
+
+        .social-box {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .social-box span {
+            font-size: 12px;
+            font-weight: 700;
+            margin-right: 5px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #111;
+            font-size: 17px;
+            text-decoration: none;
+
+            transition: .3s;
+        }
+
+        .social-icon:hover {
+            background: #111;
+            color: white;
+            border-color: #111;
+            transform: translateY(-3px);
+        }
+
+        /* Footer bottom */
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 22px 0;
+
+            color: #777;
+            font-size: 12px;
+        }
+
+        @media (max-width: 767px) {
+
+            .footer-connect {
+                text-align: center;
+            }
+
+            .email-box {
+                margin: auto;
+            }
+
+            .social-box {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f8f5ef;
+            color: #222;
+            font-family: Arial, sans-serif;
+        }
+
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        .custom-navbar {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 8px 15px;
+            border-radius: 40px;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #111;
+            font-family: Georgia, serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .navbar-brand:hover {
+            color: #BC9958;
+        }
+
+        .navbar-nav {
+            gap: 8px;
+        }
+
+        .nav-link {
+            color: #222 !important;
+            padding: 10px 12px !important;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #BC9958 !important;
+        }
+
+        .sale-link {
+            color: #BC9958 !important;
+            font-weight: 600;
+        }
+
+        .navbar-toggler {
+            border: 1px solid #BC9958;
+            border-radius: 10px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(188, 153, 88, 0.2);
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 !important;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 85vh;
+            min-height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.58),
+                rgba(0, 0, 0, 0.20),
+                transparent
+            );
+        }
+
+        .hero-title {
+            max-width: 700px;
+            font-size: 52px;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .hero-text {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .hero-btn {
+            margin-top: 10px;
+            padding: 13px 26px;
+            border: 1px solid #BC9958;
+            border-radius: 4px;
+            background: #BC9958;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            transition: 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            background: #111;
+            border-color: #111;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+
+        /* ==============================
+           BEST SELLING
+        ============================== */
+
+        .best-selling {
+            margin-top: 45px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .best-selling h1 {
+            margin: 0;
+            color: #BC9958;
+            font-family: Georgia, serif;
+            font-size: 32px;
+            letter-spacing: 2px;
+        }
+
+        .best-selling-line {
+            width: 60px;
+            height: 2px;
+            margin: 12px auto 0;
+            background: #BC9958;
+        }
+
+
+        /* ==============================
+           HORIZONTAL IMAGE SCROLL
+        ============================== */
+
+        .image-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 10px 5px 25px;
+            scroll-behavior: smooth;
+
+            /* Hide scrollbar */
+            scrollbar-width: none;
+        }
+
+        .image-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .image-container img {
+            width: 250px;
+            height: 300px;
+            flex-shrink: 0;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+            transition: 0.4s ease;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .image-container img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* ==============================
+           PRODUCTS SECTION
+        ============================== */
+
+        .products-section {
+            max-width: 1400px;
+            margin: 35px auto 70px;
+            padding: 0 25px;
+        }
+
+
+        /* ==============================
+           PRODUCT CARD
+        ============================== */
+
+        .necklace-card {
+            height: 100%;
+            overflow: hidden;
+            border: none !important;
+            border-radius: 16px !important;
+            background: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+            transition: all 0.4s ease;
+        }
+
+        .necklace-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.14);
+        }
+
+
+        /* ==============================
+           PRODUCT IMAGE
+        ============================== */
+
+        .image-box {
+            position: relative;
+            width: 100%;
+            height: 330px;
+            overflow: hidden;
+            background: #f5f2ed;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .necklace-card:hover .image-box img {
+            transform: scale(1.08);
+        }
+
+
+        /* ==============================
+           PRODUCT BADGE
+        ============================== */
+
+        .image-box .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 7px 12px;
+            border-radius: 30px;
+            background: #111;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+
+        /* ==============================
+           CARD BODY
+        ============================== */
+
+        .necklace-card .card-body {
+            padding: 22px 18px 25px;
+        }
+
+        .necklace-card .category {
+            margin-bottom: 5px;
+            color: #999;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .necklace-card h5 {
+            margin: 8px 0;
+            color: #222;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .necklace-card .description {
+            min-height: 42px;
+            margin-bottom: 10px;
+            color: #777;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+
+        /* ==============================
+           PRICE
+        ============================== */
+
+        .price {
+            margin: 15px 0;
+            color: #BC9958;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+
+        /* ==============================
+           SHOP BUTTON
+        ============================== */
+
+        .shop-btn {
+            width: 100%;
+            padding: 11px 20px;
+            border: 1px solid #BC9958;
+            border-radius: 30px;
+            background: #BC9958;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .shop-btn:hover {
+            background: #111;
+            border-color: #111;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+
+        /* ==============================
+           TABLET
+        ============================== */
+
+        @media (max-width: 991px) {
+
+            .custom-navbar {
+                width: 95%;
+            }
+
+            .navbar-nav {
+                gap: 0;
+                padding: 10px 0;
+            }
+
+            .nav-link {
+                padding: 10px 15px !important;
+            }
+
+            .hero-image {
+                height: 70vh;
+            }
+
+            .hero-title {
+                font-size: 42px;
+            }
+
+            .hero-text {
+                font-size: 16px;
+            }
+
+            .image-box {
+                height: 290px;
+            }
+
+            .products-section {
+                padding: 0 20px;
+            }
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 767px) {
+
+            .custom-navbar {
+                width: 95%;
+                margin: 10px auto;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .hero-image {
+                height: 65vh;
+                min-height: 450px;
+            }
+
+            .hero-overlay {
+                background: linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.25)
+                );
+            }
+
+            .hero-title {
+                font-size: 32px;
+                letter-spacing: 1px;
+            }
+
+            .hero-text {
+                font-size: 14px;
+            }
+
+            .hero-btn {
+                padding: 11px 20px;
+                font-size: 11px;
+            }
+
+            .best-selling {
+                margin-top: 35px;
+            }
+
+            .best-selling h1 {
+                font-size: 27px;
+            }
+
+            .image-container {
+                gap: 15px;
+            }
+
+            .image-container img {
+                width: 200px;
+                height: 250px;
+            }
+
+            .image-box {
+                height: 300px;
+            }
+
+            .necklace-card h5 {
+                font-size: 17px;
+            }
+        }
+
+
+        /* ==============================
+           SMALL MOBILE
+        ============================== */
+
+        @media (max-width: 575px) {
+
+            .custom-navbar {
+                width: 96%;
+            }
+
+            .hero-image {
+                height: 60vh;
+                min-height: 420px;
+            }
+
+            .hero-title {
+                font-size: 27px;
+            }
+
+            .hero-text {
+                font-size: 13px;
+            }
+
+            .image-container img {
+                width: 170px;
+                height: 220px;
+                border-radius: 12px;
+            }
+
+            .image-box {
+                height: 330px;
+            }
+
+            .products-section {
+                padding: 0 15px;
+            }
+
+            .necklace-card .card-body {
+                padding: 18px 15px 22px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         NAVBAR
+    ================================== -->
+
+    <nav class="navbar navbar-expand-lg custom-navbar">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                GLOW & CO.
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+                       <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                       Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="jewellery.html">
+                            JEWELRY
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="N.HTML">
+                            NECKLACES
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="ringsearring.html">
+                            EARRINGS
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="ringsearring.html">
+                            RINGS
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="BRACLETS.HTML">
+                            BRACELETS
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="newarravial.html">
+                            NEW ARRIVALS
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link sale-link" href="SALE.HTML">
+                            SALE
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =================================
+         HERO
+    ================================== -->
+
+    <div class="card text-bg-dark border-0 hero-section">
+
+        <img
+            src="ChatGPT Image Aug 24, 2026, 12_43_44 AM.png"
+            class="hero-image"
+            alt="Jewelry Banner">
+
+        <div class="card-img-overlay hero-overlay
+                    d-flex flex-column
+                    justify-content-center
+                    align-items-start
+                    p-3 p-sm-4 p-md-5">
+
+            <h1 class="hero-title">
+                ELEVATE EVERY MOMENT.
+            </h1>
+
+            <p class="hero-text">
+                Timeless jewelry designed to shine with you.
+            </p>
+
+            <button class="hero-btn">
+                EXPLORE ALL JEWELRY
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================
+         BEST SELLING TITLE
+    ================================== -->
+
+    <section class="best-selling">
+
+        <h1>
+            BEST SELLING
+        </h1>
+
+        <div class="best-selling-line"></div>
+
+    </section>
+
+
+
+    <!-- =================================
+         HORIZONTAL IMAGE SCROLL
+    ================================== -->
+
+    <div class="container">
+
+        <div class="image-container">
+
+            <img
+                src="J1 (1).jpg"
+                alt="Jewelry Collection">
+
+            <img
+                src="J1 (1).png"
+                alt="Jewelry Collection">
+
+            <img
+                src="J1 (3).png"
+                alt="Jewelry Collection">
+
+            <img
+                src="J1 (6).jpg"
+                alt="Jewelry Collection">
+
+            <img
+                src="925 Sterling Silver Heart Jewelry Set- Necklace, Ring, Earrings- Dainty Gift for Her - Etsy.jpg"
+                alt="Silver Jewelry">
+
+            <img
+                src="J1 (5).png"
+                alt="Jewelry Collection">
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================
+         PRODUCTS
+    ================================== -->
+
+    <section class="products-section">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+
+
+        <!-- ================= CARD 1 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="NACKLR=ES.png"
+                        alt="Golden Pearl Necklace">
+
+                    <span class="badge">
+                        NEW
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Golden Pearl Necklace
+                    </h5>
+
+                    <p class="description">
+                        Elegant pearls with a timeless golden finish.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 4,500
+                    </h6>
+
+                    <a href="shop.php?product=Golden%20Pearl%20Necklace"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARD 2 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="J1 (6).png"
+                        alt="Classic Gold Necklace">
+
+                    <span class="badge">
+                        BESTSELLER
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Classic Gold Necklace
+                    </h5>
+
+                    <p class="description">
+                        A delicate design made for effortless elegance.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 5,200
+                    </h6>
+
+                    <a href="shop.php?product=Classic%20Gold%20Necklace"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARD 3 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="IMG1 (2).jpg"
+                        alt="Heart Pendant Necklace">
+
+                    <span class="badge">
+                        NEW
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Heart Pendant Necklace
+                    </h5>
+
+                    <p class="description">
+                        A romantic pendant designed to shine beautifully.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 3,800
+                    </h6>
+
+                    <a href="shop.php?product=Heart%20Pendant%20Necklace"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARD 4 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="download (8).jpg"
+                        alt="Luxury Chain Necklace">
+
+                    <span class="badge">
+                        TRENDING
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Luxury Chain Necklace
+                    </h5>
+
+                    <p class="description">
+                        Modern chain design with a sophisticated finish.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 4,800
+                    </h6>
+
+                    <a href="shop.php?product=Luxury%20Chain%20Necklace"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARD 5 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="download (7).jpg"
+                        alt="Diamond Style Necklace">
+
+                    <span class="badge">
+                        NEW
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Diamond Style Necklace
+                    </h5>
+
+                    <p class="description">
+                        Sparkling details for your special moments.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 6,500
+                    </h6>
+
+                    <a href="shop.php?product=Diamond%20Style%20Necklace"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARD 6 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="J1 (6).jpg"
+                        alt="Sterling Silver Necklace">
+
+                    <span class="badge">
+                        POPULAR
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Sterling Silver Necklace
+                    </h5>
+
+                    <p class="description">
+                        Minimal silver elegance for everyday styling.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 4,200
+                    </h6>
+
+                    <a href="shop.php?product=Sterling%20Silver%20Necklace"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARD 7 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="J1 (5).png"
+                        alt="Statement Necklace">
+
+                    <span class="badge">
+                        LIMITED
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Statement Necklace
+                    </h5>
+
+                    <p class="description">
+                        A bold statement piece for unforgettable looks.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 7,200
+                    </h6>
+
+                    <a href="shop.php?product=Statement%20Necklace"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARD 8 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="J1 (5).jpg"
+                        alt="Elegant Gold Pendant">
+
+                    <span class="badge">
+                        SALE
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Elegant Gold Pendant
+                    </h5>
+
+                    <p class="description">
+                        A refined pendant that completes every outfit.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 3,500
+                    </h6>
+
+                    <a href="shop.php?product=Elegant%20Gold%20Pendant"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARD 9 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="J1 (3).png"
+                        alt="Luxury Statement Necklace">
+
+                    <span class="badge">
+                        LIMITED
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Luxury Statement Necklace
+                    </h5>
+
+                    <p class="description">
+                        A bold statement piece for unforgettable looks.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 7,200
+                    </h6>
+
+                    <a href="shop.php?product=Luxury%20Statement%20Necklace"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARD 10 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="J1 (2).jpg"
+                        alt="Premium Necklace">
+
+                    <span class="badge">
+                        LIMITED
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Premium Necklace
+                    </h5>
+
+                    <p class="description">
+                        Elegant jewelry crafted for special occasions.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 7,200
+                    </h6>
+
+                    <a href="shop.php?product=Premium%20Necklace"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARD 11 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="J1 (1).png"
+                        alt="Classic Statement Necklace">
+
+                    <span class="badge">
+                        LIMITED
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Classic Statement Necklace
+                    </h5>
+
+                    <p class="description">
+                        A bold statement piece for unforgettable looks.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 7,200
+                    </h6>
+
+                    <a href="shop.php?product=Classic%20Statement%20Necklace"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARD 12 ================= -->
+
+        <div class="col">
+
+            <div class="card necklace-card">
+
+                <div class="image-box">
+
+                    <img
+                        src="J1 (1).jpg"
+                        alt="Elegant Statement Necklace">
+
+                    <span class="badge">
+                        LIMITED
+                    </span>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <p class="category">
+                        NECKLACES
+                    </p>
+
+                    <h5>
+                        Elegant Statement Necklace
+                    </h5>
+
+                    <p class="description">
+                        A bold statement piece for unforgettable looks.
+                    </p>
+
+                    <h6 class="price">
+                        Rs. 7,200
+                    </h6>
+
+                    <a href="shop.php?product=Elegant%20Statement%20Necklace"
+                       class="shop-btn">
+                        ADD TO CART
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+<!-- ===================================================== -->
+<!-- ===================== FOOTER ======================== -->
+<!-- ===================================================== -->
+
+<footer class="footer">
+
+    <div class="container-fluid px-4 px-md-5">
+
+        <!-- FOOTER LINKS -->
+        <div class="row py-5">
+
+            <!-- SHOP -->
+            <div class="col-6 col-md-3">
+
+                <h6>SHOP</h6>
+
+                <a href="#" class="footer-link">
+                    Women
+                </a>
+
+                <a href="#" class="footer-link">
+                    Men
+                </a>
+
+                <a href="#" class="footer-link">
+                    Bags
+                </a>
+
+                <a href="#" class="footer-link">
+                    Accessories
+                </a>
+
+            </div>
+
+
+            <!-- ABOUT US -->
+            <div class="col-6 col-md-3">
+
+                <h6>ABOUT US</h6>
+
+                <a href="#" class="footer-link">
+                    Our Story
+                </a>
+
+                <a href="#" class="footer-link">
+                    Contact
+                </a>
+
+                <a href="#" class="footer-link">
+                    Careers
+                </a>
+
+                <a href="#" class="footer-link">
+                    Our Stores
+                </a>
+
+            </div>
+
+
+            <!-- SUPPORT -->
+            <div class="col-6 col-md-3">
+
+                <h6>SUPPORT</h6>
+
+                <a href="#" class="footer-link">
+                    FAQ
+                </a>
+
+                <a href="#" class="footer-link">
+                    Shipping
+                </a>
+
+                <a href="#" class="footer-link">
+                    Returns
+                </a>
+
+                <a href="#" class="footer-link">
+                    Track Order
+                </a>
+
+            </div>
+
+
+            <!-- LEGAL -->
+            <div class="col-6 col-md-3">
+
+                <h6>LEGAL</h6>
+
+                <a href="#" class="footer-link">
+                    Privacy Policy
+                </a>
+
+                <a href="#" class="footer-link">
+                    Terms & Conditions
+                </a>
+
+                <a href="#" class="footer-link">
+                    Refund Policy
+                </a>
+
+                <a href="#" class="footer-link">
+                    Cookies
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- EMAIL + SOCIAL -->
+        <div class="footer-connect">
+
+            <div class="row align-items-center g-4">
+
+                <!-- EMAIL -->
+                <div class="col-12 col-lg-7">
+
+                    <h5>
+                        JOIN OUR NEWSLETTER
+                    </h5>
+
+                    <p>
+                        Subscribe for new arrivals, exclusive offers & updates.
+                    </p>
+
+                    <div class="email-box">
+
+                        <input
+                            type="email"
+                            placeholder="Enter your email address">
+
+                        <button type="button">
+                            SUBSCRIBE
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SOCIAL -->
+                <div class="col-12 col-lg-5">
+
+                    <div class="social-box">
+
+                        <span>
+                            FOLLOW US
+                        </span>
+
+                        <a href="#" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+
+                        <a href="#" aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+
+                        <a href="#" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a href="#" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 GLOW & CO. All Rights Reserved.
+            </span>
+
+            <span>
+                Made with ♥ for Fashion
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+    <!-- Bootstrap JS -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
